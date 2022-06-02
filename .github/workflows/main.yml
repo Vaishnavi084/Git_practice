@@ -1,13 +1,18 @@
-name : Demo Worflow ## Name of the Workflow
+name: Demo worflow
 
-on: [push] 
+on: [push]
 jobs:
-    run-shell-command:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Run a Shell Command
-              run: echo "Hello World !!"
-            - name: Multiline Command
+    Run-bash-Command: ## job name
+        runs-on: ubuntu-latest ## Setting Up a runner environment
+        steps: ## steps to be exected
+            - name: Bash command
+              run: echo" Running bash scripts in ubuntu-latest environment in github server"
+            - name: Print the present directory 
+              run: pwd
+              shell: bash
+            - name: Python command
               run: |
-                  node -v 
-                  npm -v 
+                  import os 
+                  print(os.listdir())
+              shell: Python
+      
