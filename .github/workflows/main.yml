@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest ## Setting Up a runner environment
         steps: ## steps to be exected
             - name: Bash command
-              run: echo" Running bash scripts in ubuntu-latest environment in github server"
+              run: echo "Running bash scripts in ubuntu-latest environment in github server"
             - name: Print the present directory 
               run: pwd
               shell: bash
