@@ -15,4 +15,14 @@ jobs:
                   import os 
                   print(os.listdir())
               shell: python
+    run-windows-command: ## 2nd job
+        runs-on: windows-latest
+        steps:
+          - name: Running commands on Powershell
+            run: mkdir Demo
+            shell: pwsh
+          - name: Going inside our directory
+            run: cd Demo 
+            shell: cmd
+
       
