@@ -1,5 +1,5 @@
 name: Demo worflow
-
+# This is a demo workflow ,Syntax allows to trigger on push , executing commands
 on: [push]
 jobs:
     Run-bash-Command: ## job name
@@ -17,12 +17,15 @@ jobs:
               shell: python
     run-windows-command: ## 2nd job
         runs-on: windows-latest
+        needs: [Run-bash-Command] ## To run jobs in series avoid to run in parallel.
         steps:
           - name: Running commands on Powershell
             run: mkdir Demo
             shell: pwsh
           - name: Going inside our directory
-            run: cd Demo 
+            run:  |
+                cd Demo 
+                dir 
             shell: cmd
 
       
