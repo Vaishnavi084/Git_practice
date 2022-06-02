@@ -1,6 +1,5 @@
-##A sample worflow file to get started. Schedule simple shell /pythom command to be esxecuted in case of trigger events:
-
 name: Demo worflow
+
 on: [push]
 job:
     Run-bash-Command: ## job name
