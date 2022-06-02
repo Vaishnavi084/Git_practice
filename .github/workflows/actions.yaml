@@ -1,0 +1,17 @@
+name: Demo worflow on actions
+# This is a demo workflow ,Syntax allows to trigger on push , executing commands
+on: [push]
+jobs:
+    Run-Actions: ## job name
+        runs-on: ubuntu-latest
+        steps:
+          - name: JavaScript actions
+            id: greet
+            uses: actions/hello-world-javascript-action@v1
+            with:
+              who-to-greet: Vaishnavi
+          - name: Printing Log actions
+            run: echo "${{steps.greet.ouputs.time}}"
+        
+
+
