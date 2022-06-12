@@ -6,12 +6,28 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: JavaScript actions
-            id: greet
-            uses: actions/hello-world-javascript-action@v1
+            id: greet ## used to reference the action
+            uses: actions/hello-world-javascript-action@v1 #defining action
             with:
-              who-to-greet: Vaishnavi
+              who-to-greet: Vaishnavi #input
           - name: Printing Log actions
             run: echo "${{steps.greet.outputs.time}}"
+    Run-Checkout-Actions: ## parallel jobs
+        runs-on: ubuntu-latest
+        steps:
+            - name: Bash commands and Environment Variables ## Fetch commit id , repository name , current working directory in workflow
+              run: |
+                  pwd
+                  ls
+                  echo $GITHUB_SHA 
+                  echo $GITHUB_REPOSITORY
+                  echo $GITHUB_WORKSPACE 
+                  echo "${{github.token}}"
+                  
+            - name: Execute checkout actions
+              uses: actions/checkout@v3  ## checkout action definition.
+
+
         
 
 
