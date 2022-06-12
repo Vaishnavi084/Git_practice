@@ -1,0 +1,12 @@
+name: Github Workflows
+### To see how other events trigger the workflow
+on: [pull_request]
+jobs:
+    Run-Actions-on-Pullrequests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Trigger workflow on pull pull_request
+              run : |
+                  echo "Workflow triggered on Pull_Request"
+              shell: bash
+
