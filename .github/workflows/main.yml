@@ -1,6 +1,6 @@
 name: Demo worflow
 # This is a demo workflow ,Syntax allows to trigger on push , executing commands
-on: [push]
+on: [pull_request]
 jobs:
     Run-bash-Command: ## job name
         runs-on: ubuntu-latest ## Setting Up a runner environment

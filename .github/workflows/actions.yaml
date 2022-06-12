@@ -2,7 +2,7 @@ name: Demo worflow on actions
 # This is a demo workflow ,Syntax allows to trigger on push , executing commands
 on: 
     schedule:
-      - cron "0/5 * * * *"
+      - cron: "0/5 * * * *"
 jobs:
     Run-Actions: ## job name
         runs-on: ubuntu-latest
