@@ -15,7 +15,7 @@ jobs:
              echo "Github Actions Name: ${GITHUB_ACTION}"
              echo "Github Action Path : ${GITHUB_ACTION_PATH}"
              echo "Github Action_Repository: ${GITHUB_ACTION_REPOSITORY}"
-             echo "${steps.greet.outputs.time}"
+             echo "${{steps.greet.outputs.time}}"
     Run-Checkout-Actions: ## parallel jobs
         runs-on: ubuntu-latest
         steps:
