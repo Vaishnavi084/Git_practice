@@ -6,14 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Basic Functions in github
+          if : github.event_name =='push' ## not necessary to add {{}} for expression
           run: |
             echo ${{contains('Hello' , 'll' )}}
             echo ${{startswith('hello', 'he')}}
-            echo ${{endswith ('hello', 'lo ')}}
-            echo $ {{ format ('Hello {1} {2}', 'World', '!' )}}
+            echo ${{endswith('hello', 'lo')}}
+            echo ${{ format ('Hello {1} {2}', 'World', '!' )}}
 
   dump_contexts_to_log:
     runs-on: ubuntu-latest
+    if : failure() ### checks job status 
     env: 
         job_env: "Job Environment Variable"
     steps:
