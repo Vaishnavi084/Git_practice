@@ -12,11 +12,12 @@ jobs:
             echo ${{startswith('hello', 'he')}}
             echo ${{endswith('hello', 'lo')}}
             echo ${{format('Hello {0} {1}', 'World', '!' )}}
+            echo ${{job.status=='failure'}}
 
   dump_contexts_to_log:
     runs-on: ubuntu-latest
     needs: dump_functions
-    if : needs.dump_functions.result == 'failure' ### checks job status 
+    if : needs.dump_functions.status == 'failure' ### checks job status 
     env: 
         job_env: "Job Environment Variable"
     steps:
