@@ -12,7 +12,7 @@ jobs:
             echo ${{startswith('hello', 'he')}}
             echo ${{endswith('hello', 'lo')}}
             echo ${{format('Hello {0} {1}', 'World', '!' )}}
-            echo ${{job.status=='failure'}}
+            echo ${{job.status='failure'}}
 
   dump_contexts_to_log:
     runs-on: ubuntu-latest
