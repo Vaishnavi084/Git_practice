@@ -11,6 +11,7 @@ jobs:
             echo ${{contains('Hello' , 'll' )}}
             echo ${{startswith('hello', 'he')}}
             echo ${{endswith('hello', 'lo')}}
+            echo ${{job.status}}
             eccho ${{format('Hello {0} {1}', 'World', '!' )}}
           
 
