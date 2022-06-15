@@ -26,7 +26,7 @@ jobs:
         run: |
             echo '${{ toJSON(github) }}'
             exit 1
-        continue-on-error: True  ## Default False, Set to true runs all steps even if any step fails.
+        continue-on-error: true  ## Default False, Set to true runs all steps even if any step fails.
       - name: Dump job context
         # if:  failure() ## Runs next even if above step fails
         run: |
