@@ -39,4 +39,4 @@ jobs:
       - name: Dump env Variables
         run: echo '${{ toJSON(env) }}'
       - name: Retrieve job status
-        run: echo ${{dump_functions.status}}
+        run: echo ${{job.dump_functions.status}}
