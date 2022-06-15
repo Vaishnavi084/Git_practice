@@ -2,7 +2,7 @@ name: Context testing
 on: push
 
 jobs:
-  job1:
+  dump_functions:
     runs-on: ubuntu-latest
     steps:
         - name: Basic Functions in github
