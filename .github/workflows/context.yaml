@@ -8,7 +8,7 @@ jobs:
         - name: Basic Functions in github
           run: |
             echo ${{contains('Hello' , 'll' )}}
-            echo ${{startswith('hello' 'he')}}
+            echo ${{startswith('hello', 'he')}}
             echo ${{endswith ('hello', 'lo ')}}
             echo $ {{ format ('Hello {1} {2}', 'World', '!' )}}
 
