@@ -9,5 +9,5 @@ jobs:
           - name: Log Python version
             run: |
                 python -v
-                cat etc/os-release
+                cat /etc/os-release
 
