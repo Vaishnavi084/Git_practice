@@ -11,9 +11,12 @@ jobs:
       steps:
           - name: Python_Version
             run: python -v
-          - name: To run a python script
-          - uses: actions/checkout@v3
-          - uses: actions/setup-python@v4
+          - name: To pull all scripts in github inside the workflow
+            uses: actions/checkout@v3
+            run: |
+              ls -a
+          - name: Action to run Python_Script
+            uses: actions/setup-python@v4
             with:
               python-version: ${{matrix.py_version}}
               architecture: x64
