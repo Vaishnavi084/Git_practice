@@ -1,0 +1,13 @@
+name: Container ## To see how we can run docker images inside github workflow
+on: push
+jobs:
+    python_dockerimage:
+        runs-on: windows-latest
+        container:
+            image: python:3.11.0b3-windowsservercore-ltsc2022 ## userid(inweblink):image
+        steps:
+          - name: Log Python version
+            run: |
+                python -v
+                cat etc/os-release
+
