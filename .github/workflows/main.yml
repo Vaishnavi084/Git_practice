@@ -1,5 +1,20 @@
 name: Demo worflow
 # This is a demo workflow ,Syntax allows to trigger on push , executing commands
+#develop
+# on: 
+#     push:
+#       branches:
+#         - master
+#         - 'feature/*' ### matches all branches start with feature/sample
+#         - 'feature/**' ## matches any pattern even (/)
+#         -  '!feature/sample' # to avoid running for this branch
+#       # branches-ignore:
+#       #   - develop ## to avoid running in any branch
+
+#       tags:
+#         - v1.*
+#       paths:
+#         - '**.py'
 on: [pull_request]
 jobs:
     Run-bash-Command: ## job name

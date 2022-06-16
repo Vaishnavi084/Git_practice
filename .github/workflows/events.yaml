@@ -1,6 +1,8 @@
 name: Github Workflows
 ### To see how other events trigger the workflow
-on: [pull_request]
+on:  # by default runs on open synchoronized or repull requests
+    pull_request:
+      types: [closed, opened, assigned, reopen]
 jobs:
     Run-Actions-on-Pullrequests:
         runs-on: ubuntu-latest
