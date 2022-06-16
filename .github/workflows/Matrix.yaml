@@ -20,5 +20,5 @@ jobs:
             with:
               python-version: ${{matrix.py_version}}
               architecture: x64
-          - run: python sample.py 
+          - run: python Scripts/sample.py 
 
