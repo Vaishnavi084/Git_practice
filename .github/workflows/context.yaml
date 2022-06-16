@@ -1,5 +1,5 @@
 name: Context testing
-on: push
+on: pull_request
 
 jobs:
   dump_functions:
@@ -31,7 +31,6 @@ jobs:
         # if:  failure() ## Runs next even if above step fails
         run: |
             echo '${{ toJSON(job) }}'
-            exit 1
       - name: Dump steps context
         run: echo '${{ toJSON(steps) }}'
       - name: Dump runner context

@@ -1,0 +1,20 @@
+name: Workflow to understand Matrix and execute a python script
+on: push 
+
+jobs:
+  matrix_jobs:
+      strategy:
+          matrix:
+              os: [ubuntu-latest, windows_latest]
+              py_version: ['2.x','3,x']
+      runs-on: ${{matrix.os}}
+      steps:
+          - name: Python_Version
+            run: python -v
+          - name: To run a python script
+          - uses: actions/checkout@v3
+          - uses: actions/setup-python@v4
+            with:
+              python-version: ${{matrix.py_version}}
+              architecture: x64
+            run: python sample.py 
