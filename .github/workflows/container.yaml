@@ -2,7 +2,7 @@ name: Container ## To see how we can run docker images inside github workflow
 on: push
 jobs:
     python_dockerimage:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         container:
             image: python:3.11.0b3-alpine3.15 ## userid(inweblink):image
         steps:
