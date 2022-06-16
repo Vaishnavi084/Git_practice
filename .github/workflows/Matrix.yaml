@@ -6,7 +6,7 @@ jobs:
       strategy:
           matrix:
               os: [ubuntu-latest, windows_latest]
-              py_version: ['2.x','3,x']
+              py_version: ['2.x','3.x']
       runs-on: ${{matrix.os}}
       steps:
           - name: Python_Version
