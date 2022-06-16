@@ -1,0 +1,46 @@
+name: Context testing
+on: push
+
+jobs:
+  dump_functions:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Basic Functions in github
+          if : github.event_name =='push' ## not necessary to add {{}} for expression
+          run: |
+            echo ${{contains('Hello' , 'll' )}}
+            echo ${{startswith('hello', 'he')}}
+            echo ${{endswith('hello', 'lo')}}
+            echo ${{job.status}}
+            echo ${{format('Hello {0} {1}', 'World', '!' )}}
+            exit 1        
+  dump_contexts_to_log:
+    runs-on: ubuntu-latest
+    needs: dump_functions
+    if : always() && (needs.dump_functions.result == 'failure') ### checks job status 
+    env: 
+        job_env: "Job Environment Variable"
+    steps:
+      - name: Dump GitHub context
+        id: github_context_step
+        run: |
+            echo '${{ toJSON(github) }}'
+            exit 1
+        continue-on-error: true  ## Default False, Set to true runs all steps even if any step fails.
+      - name: Dump job context
+        # if:  failure() ## Runs next even if above step fails
+        run: |
+            echo '${{ toJSON(job) }}'
+            exit 1
+      - name: Dump steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Dump runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
+      - name: Dump env Variables
+        run: echo '${{ toJSON(env) }}'
+      - name: Retrieve job status
+        run: echo '${{job.dump_functions.result}}''
