@@ -13,6 +13,8 @@ jobs:
             run: python -v
           - name: To pull all scripts in github inside the workflow
             uses: actions/checkout@v3
+          - name: To list contents in github
+            run : ls 
           - name: Action to run Python_Script
             uses: actions/setup-python@v4
             with:
